@@ -1,18 +1,18 @@
 import React, { Fragment } from "react";
 
 import EducationImg from "../asset/kindpng_2158189.png";
-import EducationData from "../../Data/EducationData";
+// import EducationData from "../../Data/EducationData";
 import Certifications from "../Certifications/Certifications";
 import Degree from "./Degree";
 import classes from "./education.module.css";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import ProgrammingSkills from "../Professional Skillset/ProgrammingSkills";
 
 function Education(props) {
-    const nonThemeColor = useSelector(state => state.nonThemeColor);
-    const uiColor=useSelector(state=>state.uiColor);
+    // const nonThemeColor = useSelector(state => state.nonThemeColor);
+    // const uiColor=useSelector(state=>state.uiColor);
 
-    const languagesDone=EducationData.codingStatus;
+    // const languagesDone=EducationData.codingStatus;
     return (
         <Fragment>
             <div className={classes.educationHeader} id="education">

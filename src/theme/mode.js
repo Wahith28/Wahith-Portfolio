@@ -1,5 +1,5 @@
 import "./mode.css";
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from "react-redux";
 import { themeActions } from "../store/theme";
 
@@ -23,22 +23,22 @@ const Mode=()=>{
     const [iconIndex,setIcon]=useState(0);
 
     let mode='light';
-    function fetchSystemMode() {
+    const fetchSystemMode = useCallback(() => {
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            mode='dark';
-        }else{
-            mode='light';
+            mode = 'dark';
+        } else {
+            mode = 'light';
         }
-    }
+    }, []); // No dependencies, so it only gets created once
 
     useEffect(() => {
         fetchSystemMode();
         if (mode==='dark') {
             handleModeChange(1);
         }
-    }, [mode]);
+    }, [mode, fetchSystemMode, handleModeChange]);
 
-    function handleModeChange(index) {
+    const handleModeChange = useCallback((index) => {
         if(index===0){
             mode="light";
         }else if(index===1){
@@ -55,7 +55,7 @@ const Mode=()=>{
 
         dispatch(themeActions.setMode(mode));
         setIsVisible(false);
-    }
+    },[])
     function handleDropdown() {
         setIsVisible(!isVisible);
     }

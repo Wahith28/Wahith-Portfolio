@@ -3,14 +3,14 @@ import React from "react";
 import classes from "./ProjectItem.module.css";
 import Card from "../UI/Card";
 
-import StarIcon from '@mui/icons-material/Star';
-import GitHubIcon from '@mui/icons-material/GitHub';
+// import StarIcon from '@mui/icons-material/Star';
+// import GitHubIcon from '@mui/icons-material/GitHub';
 import { useSelector } from "react-redux";
 
 const ProjectItem = (props) => {
 
     const uiColor = useSelector(state => state.uiColor);
-    const nonThemeColor = useSelector(state => state.nonThemeColor);
+    // const nonThemeColor = useSelector(state => state.nonThemeColor);
 
     let description = props.project.description;
     if (description === '') {
